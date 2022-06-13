@@ -1,0 +1,61 @@
+html body{ 
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.gamecontainer{ 
+    width: auto; 
+    margin: auto; 
+}
+
+.instructions{ 
+    display: 'block'; 
+    margin-bottom: 100px; 
+}
+
+.play{ 
+    display: block; 
+    margin: 50px 50px; 
+}
+
+.hiddenword{ 
+    margin: 100px auto;  
+    text-align: center; 
+    font-size: 30px; 
+    display: inline; 
+}
+
+span{
+    margin: 50px; 
+}
+
+.alphabet{ 
+    display: 'block'; 
+    margin-top: 50px; 
+}
+
+.letterbtn{ 
+    margin: 10px; 
+    width: 50px; 
+    font-size: 20px; 
+}
+
+.livescontainer{ 
+    display: none; 
+    margin: 50px auto; 
+}
+
+.lives{ 
+    font-size: 30px; 
+}
+
+.wrongletters{ 
+    display: 'block'; 
+    font-size: 30px; 
+    margin-top: 50px; 
+    color: red; 
+}
+
+.winlosecontainer{
+    display: none; 
+}
+

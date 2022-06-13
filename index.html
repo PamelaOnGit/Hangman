@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HANGMAN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="gamecontainer" class="gamecontainer">
+    <h1>HANGMAN!</h1>
+
+    <h2 id="instructions" class="instructions">Click the play button and then choose your letters to guess the hidden word!</h2>
+
+    <button id="play" class="play">Play</button>
+
+    <div id="hiddenword" class="hiddenword"></div>
+    
+    <div id="alphabet" class="alphabet">
+        <button id="a" class="letterbtn">a</button>
+        <button id="b" class="letterbtn">b</button>
+        <button id="c" class="letterbtn">c</button>
+        <button id="d" class="letterbtn">d</button>
+        <button id="e" class="letterbtn">e</button>
+        <button id="f" class="letterbtn">f</button>
+        <button id="g" class="letterbtn">g</button>
+        <button id="k" class="letterbtn">k</button> 
+        <button id="o" class="letterbtn">o</button>
+        <button id="t" class="letterbtn">t</button> 
+        <button id="u" class="letterbtn">u</button>
+        <button id="w" class="letterbtn">w</button>  
+        
+        
+    </div>
+
+    <div class="livescontainer" id="livescontainer">
+        <p class="livestext" id="livestext">You have<span class="lives" id="lives">5</span>lives left.</p>
+    </div>
+
+    <div class="wrongletters" id="wrongletters">
+        
+    </div>
+
+    <div class="winlosecontainer" id="winlosecontainer">
+        <h1>You're dead! Try again!</h1>
+        <button input type="reset" class="playagain" id="playagain">Play Again</button>
+    </div>
+
+    
+        
+    
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
