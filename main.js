@@ -10,9 +10,6 @@ const alphabet = document.getElementById('alphabet');
 const livesContainer = document.getElementById('livescontainer'); 
 const playAgain = document.getElementById('playagain'); 
 
-
-
-
 const aButton = document.getElementById('a'); 
 const bButton = document.getElementById('b'); 
 const cButton = document.getElementById('c');
@@ -28,8 +25,6 @@ const wButton = document.getElementById('w');
 const yButton = document.getElementById('y'); 
 const zButton = document.getElementById('z'); 
 
-
-
 const wordSelection = ['cat', 'bat', 'dog', 'cow', 'duck', 'goat', 'toad', 'bee', 'gecko']
 //const wordSelection = ['zoo', 'ozz', 'eze']; 
 //const wordSelection = ['cow']; 
@@ -37,11 +32,6 @@ let randomNum = Math.floor(Math.random() * wordSelection.length);
 let word = wordSelection[randomNum]; 
 let wordArray = Array.from(word); 
 let lives = 5; 
-
-
-
-
-
 
 function resetGame(){ 
     for (i=0;i<word.length; i++){ 
@@ -61,7 +51,6 @@ function resetGame(){
     hiddenWord.style.display = 'inline'; 
     alphabet.style.display = 'block'; 
 
-    
     aButton.style.display = 'inline'; 
     aButton.style.backgroundColor = 'beige'; 
     bButton.style.display = 'inline';
@@ -97,8 +86,7 @@ function resetGame(){
     word = wordSelection[randomNum]; 
     wordArray = Array.from(word); 
 
-    play(); 
-    
+    play();     
 }
 playAgain.addEventListener('click', resetGame); 
 
@@ -118,7 +106,7 @@ function win(){
        //wrongLetters.style.display = 'none'; 
        winLoseMessage.innerHTML = `That's right - ${word} - You got it!`
        winLoseContainer.style.display = 'block';
-    
+
     }
     playAgain.addEventListener('click', function(){
         console.log('playAgain function works');
