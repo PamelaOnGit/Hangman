@@ -17,22 +17,38 @@ const dButton = document.getElementById('d');
 const eButton = document.getElementById('e');
 const fButton = document.getElementById('f');
 const gButton = document.getElementById('g');
+const hButton = document.getElementById('h'); 
+const iButton = document.getElementById('i'); 
+const jButton = document.getElementById('j');
 const kButton = document.getElementById('k');
+const lButton = document.getElementById('l');
+const mButton = document.getElementById('m');
+const nButton = document.getElementById('n');
 const oButton = document.getElementById('o');
+const pButton = document.getElementById('p');
+const qButton = document.getElementById('q');  
+const rButton = document.getElementById('r'); 
+const sButton = document.getElementById('s'); 
 const tButton = document.getElementById('t');
 const uButton = document.getElementById('u');
+const vButton = document.getElementById('v'); 
 const wButton = document.getElementById('w');
+const xButton = document.getElementById('x'); 
 const yButton = document.getElementById('y'); 
 const zButton = document.getElementById('z'); 
 
-const wordSelection = ['cat', 'bat', 'dog', 'cow', 'duck', 'goat', 'toad', 'bee', 'gecko']
+let alphs = ['a', 'b', 'c' ,'d' ,'e' ,'f' ,'g', 'h', 'i', 'j', 'k','l','m','n','o','p', 'q', 'r', 's', 't','u', 'v', 'w', 'x', 'y','z']; 
+
+
+const wordSelection = ['fox', 'panther', 'elephant', 'worm', 'snail', 'hedgehog', 'aardvark', 'antelope', 'cheetah', 'warthog', 'bear', 'panda', 'penguin', 'pig', 'zebra', 'lion', 'tiger', 'lizard','deer', 'donkey', 'ant', 'bird', 'fish', 'cat', 'bat', 'dog', 'cow', 'duck', 'goat', 'toad', 'bee', 'gecko','goose', 'owl', 'badger']
 //const wordSelection = ['zoo', 'ozz', 'eze']; 
-//const wordSelection = ['cow']; 
+//const wordSelection = ['pig']; 
 let randomNum = Math.floor(Math.random() * wordSelection.length); 
 let word = wordSelection[randomNum]; 
 let wordArray = Array.from(word); 
 let lives = 5; 
 
+// resets game when the 'play again' button is clicked after a win or loss notification
 function resetGame(){ 
     for (i=0;i<word.length; i++){ 
         let eachLetter = document.getElementById(`sp${i}`); 
@@ -49,38 +65,19 @@ function resetGame(){
     
     instructions.style.display = 'block'; 
     hiddenWord.style.display = 'inline'; 
+    hiddenWord.style.color = 'black'; 
     alphabet.style.display = 'block'; 
 
-    aButton.style.display = 'inline'; 
-    aButton.style.backgroundColor = 'beige'; 
-    bButton.style.display = 'inline';
-    bButton.style.backgroundColor = 'beige';
-    cButton.style.display = 'inline'; 
-    cButton.style.backgroundColor = 'beige'; 
-    dButton.style.display = 'inline'; 
-    dButton.style.backgroundColor = 'beige'; 
-    eButton.style.display = 'inline'; 
-    eButton.style.backgroundColor = 'beige'; 
-    fButton.style.display = 'inline'; 
-    fButton.style.backgroundColor = 'beige'; 
-    gButton.style.display = 'inline'; 
-    gButton.style.backgroundColor = 'beige'; 
-    kButton.style.display = 'inline'; 
-    kButton.style.backgroundColor = 'beige'; 
-    oButton.style.display = 'inline'; 
-    oButton.style.backgroundColor = 'beige'; 
-    tButton.style.display = 'inline';
-    tButton.style.backgroundColor = 'beige';
-    uButton.style.display = 'inline';
-    uButton.style.backgroundColor = 'beige'; 
-    wButton.style.display = 'inline'; 
-    wButton.style.backgroundColor = 'beige'; 
-    yButton.style.display = 'inline'; 
-    yButton.style.backgroundColor = 'beige'; 
-    zButton.style.display = 'inline'; 
-    zButton.style.backgroundColor = 'beige'; 
+    function resetAlphabetButton(alph){ 
+        let alphButton = document.getElementById(alph); 
+        alphButton.style.display = 'inline'; 
+        alphButton.style.backgroundColor = 'beige';
+    }
+    
 
-    wrongLetters.style.display = 'block'; 
+    for (i=0;i<alphs.length; i++){ 
+        resetAlphabetButton(alphs[i]); 
+    }
 
     randomNum = Math.floor(Math.random() * wordSelection.length); 
     word = wordSelection[randomNum]; 
@@ -90,6 +87,7 @@ function resetGame(){
 }
 playAgain.addEventListener('click', resetGame); 
 
+// after every letter choice is made, tests whether the player has guessed all the letters correctly and thereby won the game
 function win(){ 
     let winArray = []; 
     for (i=0; i<word.length; i++){
@@ -100,11 +98,10 @@ function win(){
     console.log(wordArray); 
     if (winArray.join() === wordArray.join()){ 
        instructions.style.display = 'none'; 
-       hiddenWord.style.display = 'none'; 
+       hiddenWord.style.color = 'green';
        alphabet.style.display = 'none'; 
        livesContainer.style.display = 'none'; 
-       //wrongLetters.style.display = 'none'; 
-       winLoseMessage.innerHTML = `That's right - ${word} - You got it!`
+       winLoseMessage.innerHTML = `You got it!`
        winLoseContainer.style.display = 'block';
 
     }
@@ -113,6 +110,7 @@ function win(){
     })
 }
 
+// is called when player chooses any letter, tests whether that letter is incorrect, changes button color to pink
 function incorrectLetter(alph){ 
     if (!word.includes(alph)){ 
         let alphButton = document.getElementById(alph); 
@@ -131,6 +129,7 @@ function incorrectLetter(alph){
     }
 }
 
+// is called when player chooses any letter, tests whether that letter is correct and fills in correct letter in the hidden animal word
 function correctLetter(alph) { 
     if (word.includes(alph)){
         for (i=0; i<word.length; i++){ 
@@ -142,6 +141,8 @@ function correctLetter(alph) {
     }
 }
 
+
+//call the functions whenever player clicks on a letter
 function aPress(){ 
     correctLetter('a'); 
     incorrectLetter('a'); 
@@ -190,16 +191,75 @@ function gPress(){
     win(); 
 }
 
+function hPress(){
+    correctLetter('h'); 
+    incorrectLetter('h'); 
+    win(); 
+}
+
+function iPress(){
+    correctLetter('i'); 
+    incorrectLetter('i'); 
+    win(); 
+}
+
+function jPress(){
+    correctLetter('j'); 
+    incorrectLetter('j'); 
+    win(); 
+}
+
 function kPress(){ 
     correctLetter('k'); 
     incorrectLetter('k'); 
     win(); 
 }
 
+function lPress(){ 
+    correctLetter('l'); 
+    incorrectLetter('l'); 
+    win(); 
+}
+
+function mPress(){ 
+    correctLetter('m'); 
+    incorrectLetter('m'); 
+    win(); 
+}
+
+function nPress(){ 
+    correctLetter('n'); 
+    incorrectLetter('n'); 
+    win(); 
+}
 
 function oPress(){ 
     correctLetter('o'); 
     incorrectLetter('o'); 
+    win(); 
+}
+
+function pPress(){ 
+    correctLetter('p'); 
+    incorrectLetter('p'); 
+    win(); 
+}
+
+function qPress(){
+    correctLetter('q'); 
+    incorrectLetter('q'); 
+    win(); 
+}
+
+function rPress(){ 
+    correctLetter('r'); 
+    incorrectLetter('r'); 
+    win(); 
+}
+
+function sPress(){
+    correctLetter('s'); 
+    incorrectLetter('s'); 
     win(); 
 }
 
@@ -217,10 +277,22 @@ function uPress(){
     win(); 
 }
 
+function vPress(){
+    correctLetter('v'); 
+    incorrectLetter('v'); 
+    win(); 
+}
+
 
 function wPress(){ 
     correctLetter('w');
     incorrectLetter('w'); 
+    win(); 
+}
+
+function xPress(){
+    correctLetter('x'); 
+    incorrectLetter('x'); 
     win(); 
 }
 
@@ -238,12 +310,14 @@ function zPress() {
     win(); 
 }
 
+
+// selects a random animal word from the wordSelection list, converts to spans _ to hide the letters, adds event listeners for the alphabet buttons
 function play() { 
 
     for (i=0; i<wordArray.length; i++){
     let hiddenLetter = document.createElement('span'); 
     hiddenLetter.setAttribute('id', `sp${i}`);
-    hiddenLetter.innerHTML = '?'; 
+    hiddenLetter.innerHTML = '_'; 
     hiddenWord.appendChild(hiddenLetter); 
 } 
 
@@ -254,11 +328,23 @@ dButton.addEventListener('click', dPress, {once: true});
 eButton.addEventListener('click', ePress, {once: true}); 
 fButton.addEventListener('click', fPress, {once: true}); 
 gButton.addEventListener('click', gPress, {once: true}); 
+hButton.addEventListener('click', hPress, {once: true}); 
+iButton.addEventListener('click', iPress, {once: true}); 
+jButton.addEventListener('click', jPress, {once: true}); 
 kButton.addEventListener('click', kPress, {once: true}); 
+lButton.addEventListener('click', lPress, {once: true});
+mButton.addEventListener('click', mPress, {once: true}); 
+nButton.addEventListener('click', nPress, {once: true});
 oButton.addEventListener('click', oPress, {once: true}); 
+pButton.addEventListener('click', pPress, {once: true}); 
+qButton.addEventListener('click', qPress, {once: true}); 
+rButton.addEventListener('click', rPress, {once: true});
+sButton.addEventListener('click', sPress, {once: true}); 
 tButton.addEventListener('click', tPress, {once: true}); 
-uButton.addEventListener('click', uPress, {once: true}); 
+uButton.addEventListener('click', uPress, {once: true});
+vButton.addEventListener('click', vPress, {once: true}); 
 wButton.addEventListener('click', wPress, {once: true}); 
+xButton.addEventListener('click', xPress, {once: true}); 
 yButton.addEventListener('click', yPress, {once: true}); 
 zButton.addEventListener('click', zPress, {once: true}); 
 
