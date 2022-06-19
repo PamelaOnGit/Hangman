@@ -37,11 +37,13 @@ span{
     margin: 10px; 
     width: 50px; 
     font-size: 20px; 
+    background-color: beige; 
 }
 
 .livescontainer{ 
     display: none; 
     margin: 50px auto; 
+    outline: 1px lightblue; 
 }
 
 .lives{ 
@@ -58,4 +60,6 @@ span{
 .winlosecontainer{
     display: none; 
 }
+
+
 
