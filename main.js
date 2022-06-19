@@ -117,7 +117,6 @@ function incorrectLetter(alph){
     if (!word.includes(alph)){ 
         let alphButton = document.getElementById(alph); 
         alphButton.style.backgroundColor = 'pink'; 
-        //alphButton.removeEventListener('click', zPress);
         lives = lives - 1; 
         if (lives > 0){ 
             numLives.innerHTML = lives; 
